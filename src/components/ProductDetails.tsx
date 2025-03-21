@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -66,7 +66,7 @@ interface Product {
 // This will be replaced by actual API call once backend is implemented
 const fetchProductDetails = async (id: string) => {
   console.log("Fetching product details for:", id);
-  
+
   // For new products, return empty template
   if (id === 'new') {
     return {
@@ -83,10 +83,10 @@ const fetchProductDetails = async (id: string) => {
       isActive: true
     };
   }
-  
+
   // Simulate API call delay for existing products
   await new Promise(resolve => setTimeout(resolve, 1000));
-  
+
   // Mock data - will be replaced by actual API call
   switch (id) {
     // Carbon Black Products
@@ -97,20 +97,20 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Trusted software enforcement with flexible deployment',
         fullDescription: 'Carbon Black App Control leverages a positive security model allowing only trusted software to run. It can be deployed on-premise, on private and public clouds.',
         features: [
-          'Positive security model',
-          'On-premise and cloud deployment',
-          'Trusted software enforcement'
+          "Carbon Black App Control leverages a positive security model allowing only trusted software to run",
+          "It can be deployed on-premise, on private and public clouds.",
+          "Trusted software enforcement"
         ],
         useCases: [
-          'Reduce unplanned downtime of critical systems',
-          'Reduce costly re-imaging',
-          'Consolidates agents',
-          'Prevent unwanted changes to system configs',
-          'Protect legacy systems running on end-of-life operating systems',
-          'Manage software licenses accurately',
-          'File inventory',
-          'Application Vulnerability assessment',
-          'Regulatory'
+          "Reduce unplanned downtime of critical systems",
+          "Reduce costly re-imaging",
+          "Consolidate agents",
+          "Prevent unwanted changes to system configs",
+          "Protect legacy systems",
+          "Manage software licenses accurately",
+          "File inventory",
+          "Application Vulnerability assessment",
+          "Regulatory"
         ],
         competition: [
           'Ivanti',
@@ -135,30 +135,23 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Advanced threat detection and response',
         fullDescription: 'Carbon Black EDR detects and responds to advanced attacks through a comprehensive and integrated approach for security teams. Carbon Black provides immediate access to the most complete picture of an attack, reducing lengthy investigations from days to minutes. Security teams can proactively hunt for threats, uncover suspicious behavior, disrupt active attacks, and address gaps in defenses before attackers can. Carbon Black EDR gives a proactive and unified defense against evolving threats.',
         features: [
-          'Advanced Threat Detection',
-          'Incident Response',
-          'Threat Hunting',
-          'Malware Analysis',
-          'Compliance & Reporting',
-          'Insider Threat Detection',
-          'Data Exfiltration Detection',
-          'Operational Efficiency',
-          'Third-Party Risk Management',
-          'Ransomware Detection',
-          'Enhanced Visibility & Control'
+          "Carbon Black EDR detects and responds to advanced attacks through a comprehensive and integrated approach for security teams.",
+          "Carbon Black provides immediate access to the most complete picture of an attack, reducing lengthy investigations from days to minutes.",
+          "Security teams can proactively hunt for threats, uncover suspicious behavior, disrupt active attacks, and address gaps in defenses before attackers can.",
+          "Carbon Black EDR gives a proactive and unified defense against evolving threats."
         ],
         useCases: [
-          'Advanced Threat Detection',
-          'Incident Response',
-          'Threat Hunting',
-          'Malware Analysis',
-          'Compliance & Reporting',
-          'Insider Threat Detection',
-          'Data Exfiltration Detection',
-          'Operational Efficiency',
-          'Third-Party Risk Management',
-          'Ransomware Detection',
-          'Enhanced Visibility & Control'
+          "Advanced Threat Detection",
+          "Incident Response",
+          "Threat Hunting",
+          "Malware Analysis",
+          "Compliance & Reporting",
+          "Insider Threat Detection",
+          "Data Exfiltration Detection",
+          "Operational Efficiency",
+          "Third-Party Risk Management",
+          "Ransomware Detection",
+          "Enhanced Visibility & Control"
         ],
         competition: [
           'Palo Alto',
@@ -185,13 +178,13 @@ const fetchProductDetails = async (id: string) => {
           'Device Control'
         ],
         useCases: [
-          'Ransomware Defense',
-          'Operational efficiency',
-          'Malware Analysis',
-          'Real Time monitoring',
-          'Data Exfiltration Prevention',
-          'Remote shell into endpoints for immediate action',
-          'Cloud-native platform with single agent & console'
+          "Ransomware Defense",
+          "Operational Efficiency",
+          "Malware Analysis",
+          "Real-Time Monitoring",
+          "Data Exfiltration Prevention",
+          "Remote shell into endpoints for immediate action",
+          "Cloud-native platform with single agent & console"
         ],
         competition: [
           'Palo Alto',
@@ -216,25 +209,25 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Live Query, Vulnerability Management, NGAV, Behavioral EDR, and Device Control',
         fullDescription: 'Live Query, Vulnerability Management, NGAV, Behavioral EDR, Device Control',
         features: [
-          'Live Query',
-          'Vulnerability Management',
-          'NGAV',
-          'Behavioral EDR',
-          'Device Control'
+          "Live Query",
+          "Vulnerability Management",
+          "NGAV",
+          "Behavioral EDR",
+          "Device Control"
         ],
         useCases: [
-          'Ransomware Defense',
-          'Operational efficiency',
-          'Malware Analysis',
-          'Real Time monitoring',
-          'Data Exfiltration Prevention',
-          'Remote shell into endpoints for immediate action',
-          'Cloud-native platform with single agent & console',
-          'Pull 1,500+ artifacts across all endpoints',
-          'Flexible query scheduler',
-          'Filterable & exportable results',
-          'Built-in vulnerability context and links to resources',
-          'Prioritized and scored based on risk of exploit'
+          "Ransomware Defense",
+          "Operational Efficiency",
+          "Malware Analysis",
+          "Real-Time Monitoring",
+          "Data Exfiltration Prevention",
+          "Remote shell into endpoints for immediate action",
+          "Cloud-native platform with single agent & console",
+          "Pull 1,500+ artifacts across all endpoints",
+          "Flexible query scheduler",
+          "Filterable & exportable results",
+          "Built-in vulnerability context and links to resources",
+          "Prioritized and scored based on risk of exploit"
         ],
         competition: [
           'Palo Alto',
@@ -267,22 +260,22 @@ const fetchProductDetails = async (id: string) => {
           'Enterprise EDR'
         ],
         useCases: [
-          'Ransomware Defense',
-          'Operational efficiency',
-          'Malware Analysis',
-          'Real Time monitoring',
-          'Data Exfiltration Prevention',
-          'Remote shell into endpoints for immediate action',
-          'Cloud-native platform with single agent & console',
-          'Pull 1,500+ artifacts across all endpoints',
-          'Flexible query scheduler',
-          'Filterable & exportable results',
-          'Built-in vulnerability context and links to resources',
-          'Prioritized and scored based on risk of exploit',
-          'Continuous and centralized recording of endpoint activity',
-          'Out-of-the-box and customizable threat intelligence',
-          'Identity intelligence',
-          'Attack chain visualization and enterprise-wide search'
+          "Ransomware Defense",
+          "Operational Efficiency",
+          "Malware Analysis",
+          "Real-Time Monitoring",
+          "Data Exfiltration Prevention",
+          "Remote shell into endpoints for immediate action",
+          "Cloud-native platform with single agent & console",
+          "Pull 1,500+ artifacts across all endpoints",
+          "Flexible query scheduler",
+          "Filterable & exportable results",
+          "Built-in vulnerability context and links to resources",
+          "Prioritized and scored based on risk of exploit",
+          "Continuous and centralized recording of endpoint activity",
+          "Out-of-the-box and customizable threat intelligence",
+          "Identity intelligence",
+          "Attack chain visualization and enterprise-wide search"
         ],
         competition: [
           'Palo Alto',
@@ -307,35 +300,35 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Enterprise EDR, NGAV, Behavioral EDR, Asset Inventory, Live Query, CIS Benchmarks, vCenter Plug-in, Lifecycle Management, and Vulnerability Management',
         fullDescription: 'Enterprise EDR, NGAV, Behavioral EDR, Asset Inventory, Live Query, CIS Benchmarks, vCenter Plug-in, Lifecycle Management, Vulnerability Management',
         features: [
-          'Enterprise EDR',
-          'NGAV',
-          'Behavioral EDR',
-          'Asset Inventory',
-          'Live Query',
-          'CIS Benchmarks',
-          'vCenter Plug-in',
-          'Lifecycle Management',
-          'Vulnerability Management'
+          "Enterprise EDR",
+          "NGAV",
+          "Behavioral EDR",
+          "Asset Inventory",
+          "Live Query",
+          "CIS Benchmarks",
+          "vCenter Plug-in",
+          "Lifecycle Management",
+          "Vulnerability Management"
         ],
         useCases: [
-          'Public cloud support and account onboarding',
-          'CIS benchmarks',
-          'Ransomware Defense',
-          'Operational efficiency',
-          'Malware Analysis',
-          'Real Time monitoring',
-          'Data Exfiltration Prevention',
-          'Remote shell into endpoints for immediate action',
-          'Cloud-native platform with single agent & console',
-          'Pull 1,500+ artifacts across all endpoints',
-          'Flexible query scheduler',
-          'Filterable & exportable results',
-          'Built-in vulnerability context and links to resources',
-          'Prioritized and scored based on risk of exploit',
-          'Continuous and centralized recording of endpoint activity',
-          'Out-of-the-box and customizable threat intelligence',
-          'Identity intelligence',
-          'Attack chain visualization and enterprise-wide search'
+          "Public cloud support and account onboarding",
+          "CIS Benchmarks",
+          "Ransomware Defense",
+          "Operational Efficiency",
+          "Malware Analysis",
+          "Real-Time Monitoring",
+          "Data Exfiltration Prevention",
+          "Remote shell into endpoints for immediate action",
+          "Cloud-native platform with single agent & console",
+          "Pull 1,500+ artifacts across all endpoints",
+          "Flexible query scheduler",
+          "Filterable & exportable results",
+          "Built-in vulnerability context and links to resources",
+          "Prioritized and scored based on risk of exploit",
+          "Continuous and centralized recording of endpoint activity",
+          "Out-of-the-box and customizable threat intelligence",
+          "Identity intelligence",
+          "Attack chain visualization and enterprise-wide search"
         ],
         competition: [
           'Palo Alto',
@@ -390,10 +383,7 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Management console to monitor and control network connections from managed endpoints',
         fullDescription: 'Management console to monitor and control network connections from managed endpoints',
         features: [
-          'Flexible rule-based enforcement',
-          'Integrated into console policy workflows',
-          'Increased visibility into network and application behavior',
-          'Streamline enforcement by integrating with native OS firewall tools'
+          "Management console to monitor and control network connections from managed endpoints"
         ],
         useCases: [
           'Flexible rule-based enforcement',
@@ -425,13 +415,19 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Identifies sensitive information on endpoints (desktops/laptops) and monitors/regulates the flow of that information.',
         fullDescription: 'Identifies sensitive information on endpoints (desktops/laptops) and monitors/regulates the flow of that information.',
         features: [
-          'Endpoint Prevent: Stops sensitive data from moving off endpoints (e.g., USB, network shares, applications).',
-          'Endpoint Discover: Scans internal hard drives to identify stored confidential data.'
+          "Symantec Endpoint DLP lets you identify sensitive information on endpoints (Desktops/Laptops) in your organization and enables you to monitor and regulate the flow of that information as it moves off devices and is accessed by applications."
         ],
         useCases: [
-          'Data loss prevention for sensitive information (e.g., credit card numbers, personal identification data).',
-          'High-performance parallel scanning of endpoints.',
-          'Automatic quarantine of confidential files.'
+          "Prevent data leakage",
+          "Monitor sensitive information",
+          "Regulate data transfer",
+          "Protect confidential files",
+          "Identify stored confidential data",
+          "Secure or relocate sensitive data",
+          "Stop unauthorized file transfers",
+          "Prevent data movement to external storage",
+          "Monitor application-level data transfers",
+          "Enable high-performance scanning for compliance"
         ],
         competition: [
           'Forcepoint',
@@ -453,13 +449,12 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Captures and analyzes network traffic to detect confidential data and metadata over protocols like SMTP, FTP, HTTP, and IM.',
         fullDescription: 'Captures and analyzes network traffic to detect confidential data and metadata over protocols like SMTP, FTP, HTTP, and IM.',
         features: [
-          'Network Monitor: Captures and analyzes traffic, detects confidential data, and filters low-risk traffic.',
-          'Network Prevent for Email: Monitors and blocks outbound email traffic in-line.',
-          'Network Prevent for Web: Integrates with HTTP/HTTPS/FTP proxy servers to reject or modify web requests containing confidential data.'
+          "Network DLP captures and analyzes traffic on network, detecting confidential data, and traffic metadata over protocols you specify. These protocols include SMTP, FTP, HTTP, and various IM protocols"
         ],
         useCases: [
-          'Monitor and prevent data loss over email and web traffic.',
-          'Integrate with industry-standard mail transfer agents (MTAs) and proxy servers.'
+          "Network Monitor captures and analyzes traffic on your network, detecting confidential data, and traffic metadata over protocols you specify. These protocols include SMTP, FTP, HTTP, and various IM protocols. You can configure a Network Monitor Server to monitor custom protocols and to use various filters (per protocol) to filter out the low-risk traffic.",
+          "Network Prevent for Email monitors and analyzes the outbound email traffic in-line. It also optionally blocks, redirects, or modifies email messages as specified in your policies. Network Prevent for Email integrates with industry-standard mail transfer agents (MTAs) and hosted email services to monitor and stop data loss incidents over SMTP. Policies that are deployed on the Network Prevent for Email Server direct the Prevent-integrated MTA or hosted mail server. The Prevent-integrated mail server blocks, reroutes, and alters email messages that are based on specific content or other message attributes.",
+          "The Network Prevent for Web Server integrates with an HTTP, HTTPS, or FTP proxy server using ICAP for in-line active Web request management. If it detects confidential data in Web content, it causes the proxy to reject requests or remove HTML content as specified in your policies."
         ],
         competition: [
           'Forcepoint',
@@ -481,12 +476,11 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Locates exposed confidential data on network storage and endpoints.',
         fullDescription: 'Locates exposed confidential data on network storage and endpoints.',
         features: [
-          'Network Discover Server: Scans selected targets (e.g., files, repositories) to detect confidential information.',
-          'Endpoint Discover: Scans endpoints for stored confidential data.'
+          "DLP is a set of technologies, products, and techniques that are designed to stop sensitive information from leaving an organization"
         ],
         useCases: [
-          'Identify and secure exposed confidential data.',
-          'High-performance scanning of endpoints and network storage.'
+          "Data loss prevention is a security solution that identifies and helps prevent unsafe or inappropriate sharing, transfer, or use of sensitive data.",
+          "The Network Discover Server locates a wide range of exposed confidential data. It communicates with the Enforce Server to obtain information about policies and scan targets. It sends information about exposed confidential data that it finds to the Enforce Server for reporting and remediation.The Network Discover Server scans the selected targets, reads the files or repositories, and detects whether confidential information is present."
         ],
         competition: [
           'Forcepoint',
@@ -507,15 +501,15 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides data loss prevention for cloud applications (e.g., Office 365, G-Suite, Box, Salesforce).',
         fullDescription: 'Provides data loss prevention for cloud applications (e.g., Office 365, G-Suite, Box, Salesforce).',
         features: [
-          'CASB DLP: Integrates with Symantec CloudSOC for SaaS applications.',
-          'Cloud Detection Service for Email: Detects confidential data in corporate email (Exchange, Office 365, Gmail).',
-          'Cloud Detection Service for Web: Monitors content in cloud applications via Cloud SWG.',
-          'OCR in the Cloud: Extracts text from images and PDFs for detection.'
+          "DLP helps you understand how your sensitive information is being used, including what data is being handled and by whom.",
+          "DLP scans sanctioned and unsanctioned cloud apps, such as Office 365, G-Suite, Box, and Salesforce.",
+          "Perform local scanning, detection, and real-time monitoring."
         ],
         useCases: [
-          'Monitor and prevent data loss in cloud applications.',
-          'Real-time monitoring and detection of policy violations.',
-          'OCR for text extraction from images and PDFs.'
+          "Application Detection expands the Symantec best-in-class policy detection capabilities to include Symantec CloudSoc, proprietary cloud applications, and the Symantec API Detection Server.",
+          "Symantec CloudSOC: The Symantec Cloud Detection Service lets you integrate seamlessly with the Symantec CloudSOC cloud access security broker (CASB). Symantec CloudSOC includes Securlets and Gatelets with robust APIs that connect to many software-as-a-service (SaaS) applications, such as Gmail, Google Drive, and Salesforce. Securlets inspect sensitive data that is exposed in cloud applications. Gatelets inspect content in files and documents as they are uploaded to, or downloaded from, cloud applications. Connecting Symantec Data Loss Prevention to Symantec CloudSOC through the Cloud Detection Service lets you incorporate the Symantec best-in-class policy detection capabilities for any SaaS application Symantec CloudSOC supports.",
+          "Proprietary cloud applications: You can write REST clients for your own cloud applications using the Symantec Detection REST API, allowing you to inspect application data through the Symantec Cloud Detection Service.",
+          "The API Detection Server: You can use API Detection to connect with on-premises applications. You must create a REST client for the applications you would like to connect."
         ],
         competition: [
           'Forcepoint',
@@ -535,446 +529,111 @@ const fetchProductDetails = async (id: string) => {
         name: 'SEP-SES',
         shortDescription: 'Comprehensive endpoint protection suite',
         fullDescription: 'Symantec Endpoint Security provides advanced protection against modern cyber threats.',
-        features: [
-          'Application control',
-          'Device control',
-          'Advanced threat protection'
-        ],
-        useCases: [
-          'Reduce unplanned downtime',
-          'Prevent malware infections',
-          'Protect legacy systems'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Application-Control.html' }
-        ],
         category: 'Endpoint',
-        isActive: true
-      };
-
-    case '35': // Adaptive Protection
-      return {
-        id: '35',
-        name: 'Adaptive Protection',
-        shortDescription: 'Protection against sophisticated attacks',
-        fullDescription: 'Adaptive Protection protects enterprise environments from the shift in the threat landscape toward sophisticated and targeted attacks.',
-        features: [
-          'Living off the Land (LOTL) attack prevention',
-          'Customizable protection policies',
-          'Advanced threat detection'
-        ],
-        useCases: [
-          'Protect against sophisticated attacks',
-          'Customize protection policies',
-          'Detect advanced threats'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Using-Adaptive-Protection.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '36': // AD Threat Defense
-      return {
-        id: '36',
-        name: 'AD Threat Defense',
-        shortDescription: 'Active Directory threat defense',
-        fullDescription: 'AD breach assessment and threat defense for Active Directory environments.',
-        features: [
-          'Active Directory breach assessment',
-          'Threat detection',
-          'Cloud and on-premise deployment'
-        ],
-        useCases: [
-          'Protect Active Directory',
-          'Detect breaches',
-          'Deploy on cloud or on-premise'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Using-Threat-Defense-for-Active-Directory.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '37': // Host Integrity
-      return {
-        id: '37',
-        name: 'Host Integrity',
-        shortDescription: 'Endpoint compliance and integrity checks',
-        fullDescription: 'SEP Host Integrity provides flexible compliance checks and options to automate remediation.',
-        features: [
-          'Compliance checks',
-          'Automated remediation',
-          'Scalable policy updates'
-        ],
-        useCases: [
-          'Ensure endpoint compliance',
-          'Automate remediation',
-          'Scalable policy management'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Settings/cs-help-hi-console-v14067393-d4155e15268.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '38': // IPS
-      return {
-        id: '38',
-        name: 'IPS',
-        shortDescription: 'Network-based intrusion prevention',
-        fullDescription: 'Powerful network-based protection prevents attacks from malicious domains, OS and application vulnerabilities before attackers can touch the file system.',
-        features: [
-          'Network-based protection',
-          'Proactive threat prevention',
-          'Exploit layer protection'
-        ],
-        useCases: [
-          'Prevent network-based attacks',
-          'Protect against OS vulnerabilities',
-          'Proactively block threats'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/about-symantec-ips-signatures-v36817114-d53e9297.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '39': // AML
-      return {
-        id: '39',
-        name: 'AML',
-        shortDescription: 'Advanced machine learning for threat prevention',
-        fullDescription: 'SEP leverages machine learning for prevention, especially when not connected to the cloud.',
-        features: [
-          'Machine learning-based prevention',
-          'Offline threat detection',
-          'Advanced threat protection'
-        ],
-        useCases: [
-          'Prevent advanced threats',
-          'Detect threats offline',
-          'Leverage machine learning'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/how-does-use-advanced-machine-learning-v120625733-d47e275.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '40': // Mobile Threat Management
-      return {
-        id: '40',
-        name: 'MTM (Mobile Threat Management)',
-        shortDescription: 'Mobile device threat protection',
-        fullDescription: 'Symantec provides best-in-class protection for mobile devices that covers OS vulnerabilities and suspicious and malicious apps as well as risky Wi-Fi identification and protection.',
-        features: [
-          'Mobile OS protection',
-          'Malicious app detection',
-          'Risky Wi-Fi protection'
-        ],
-        useCases: [
-          'Protect mobile devices',
-          'Detect malicious apps',
-          'Identify risky Wi-Fi'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Integrations/unified-endpoint-management-v131977090-d4155e1035/configuring-zero-touch-onboarding-of-sep-mobile-app-for-mobile-devices.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '41': // Generic Exploit Mitigation
-      return {
-        id: '41',
-        name: 'GEM (Generic Exploit Mitigation)',
-        shortDescription: 'Signature-less exploit mitigation',
-        fullDescription: 'SEP pre-emptively blocks exploits using heap spray techniques, abuse of java security manager, etc., and works regardless of flaw/bug/vulnerability.',
-        features: [
-          'Signature-less exploit prevention',
-          'Heap spray mitigation',
-          'Java security manager protection'
-        ],
-        useCases: [
-          'Prevent zero-day exploits',
-          'Mitigate heap spray attacks',
-          'Protect against Java vulnerabilities'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Glossary/memory-exploit-mitigation-v123023328-d4155e40710.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '42': // Suspicious Detection
-      return {
-        id: '42',
-        name: 'IS - Suspicious Detection',
-        shortDescription: 'Suspicious file detection',
-        fullDescription: 'Detects any suspicious files in your network based on the intensity level that is set in the Intensive Protection policy.',
-        features: [
-          'Suspicious file detection',
-          'Intensive protection policy',
-          'File analysis'
-        ],
-        useCases: [
-          'Detect suspicious files',
-          'Set protection intensity',
-          'Analyze file behavior'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Protection/antimalware-policy-advanced-settings-v128420816-d4155e13131/using-intensive-protection-settings-v119910353-d4155e29254.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '43': // Tamper Protection
-      return {
-        id: '43',
-        name: 'Tamper Protection',
-        shortDescription: 'Endpoint protection tampering prevention',
-        fullDescription: 'SEP has powerful tamper protection that monitors SEP processes, files, and registry keys and prevents malware or users from disabling endpoint protection.',
-        features: [
-          'Tamper protection',
-          'Process monitoring',
-          'Registry key protection'
-        ],
-        useCases: [
-          'Prevent tampering',
-          'Monitor SEP processes',
-          'Protect registry keys'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Protection/about-tamper-protection-settings-v129409766-d4155e22442.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '44': // Threat Hunting
-      return {
-        id: '44',
-        name: 'Threat Hunting',
-        shortDescription: 'Automated threat hunting',
-        fullDescription: 'Decades of threat intelligence and security experts automate threat hunting and provide additional customer-specific context.',
-        features: [
-          'Automated threat hunting',
-          'Threat intelligence',
-          'Customer-specific context'
-        ],
-        useCases: [
-          'Automate threat hunting',
-          'Leverage threat intelligence',
-          'Provide customer-specific context'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://apidocs.securitycloud.symantec.com/#/doc?id=related_api' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '45': // TAA
-      return {
-        id: '45',
-        name: 'TAA',
-        shortDescription: 'Targeted attack analytics',
-        fullDescription: 'SEDR provides precise detections from time-tested Targeted Attack Analytics, based on global activity of the good and the bad across all customer enterprises that comprise the telemetry set.',
-        features: [
-          'Targeted attack detection',
-          'Global telemetry analysis',
-          'Precise detections'
-        ],
-        useCases: [
-          'Detect targeted attacks',
-          'Analyze global telemetry',
-          'Provide precise detections'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response/About-Incidents/about-targeted-attack-analytics-v134669993-d38e88773.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '46': // Sandboxing
-      return {
-        id: '46',
-        name: 'Sandboxing',
-        shortDescription: 'Malware analysis and sandboxing',
-        fullDescription: 'Cynic is included in SES Complete. Cynic supports PE, Documents, and PS1, etc. Symantec has the option of on-prem Malware Analysis Appliance for on-prem EDR.',
-        features: [
-          'Malware analysis',
-          'Sandboxing',
-          'On-prem and cloud options'
-        ],
-        useCases: [
-          'Analyze malware',
-          'Sandbox suspicious files',
-          'Deploy on-prem or cloud'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
-      };
-
-    case '47': // EDR
-      return {
-        id: '47',
-        name: 'EDR',
-        shortDescription: 'Endpoint detection and response',
-        fullDescription: 'Symantec EPP and EDR are both available for cloud, on-prem, and hybrid deployments.',
-        features: [
-          'Endpoint detection',
-          'Response capabilities',
-          'Cloud, on-prem, and hybrid deployment'
-        ],
-        useCases: [
-          'Detect endpoint threats',
-          'Respond to incidents',
-          'Deploy on cloud, on-prem, or hybrid'
-        ],
-        competition: [
-          'Microsoft',
-          'PaloAlto',
-          'SentinelOne',
-          'Trellix',
-          'Crowdstrike',
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response.html' }
-        ],
-        category: 'Endpoint',
-        isActive: true
+        isActive: true,
+        products: [
+          {
+            name: "Adaptive Protection",
+            short_description: "Protection against sophisticated attacks",
+            description: "Adaptive Protection protects enterprise environments from the shift in the threat landscape toward sophisticated and targeted attacks.",
+            features: [
+              "Living off the Land (LOTL) attack prevention",
+              "Customizable protection policies",
+              "Advanced threat detection"
+            ],
+            use_cases: [
+              "Protect against sophisticated attacks",
+              "Customize protection policies",
+              "Detect advanced threats"
+            ],
+            competition: [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            clients: [
+              "HCL",
+              "PNB",
+              "Axis Bank",
+              "Infosys"
+            ],
+            subscription_type: "Subscription",
+            white_paper_links: [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Using-Adaptive-Protection.html"
+            ]
+          },
+          {
+            name: "AD Threat Defense",
+            short_description: "Active Directory threat defense",
+            description: "AD breach assessment and threat defense for Active Directory environments.",
+            features: [
+              "Active Directory breach assessment",
+              "Threat detection",
+              "Cloud and on-premise deployment"
+            ],
+            use_cases: [
+              "Protect Active Directory",
+              "Detect breaches",
+              "Deploy on cloud or on-premise"
+            ],
+            competition: [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            clients: [
+              "Axis Bank (In Progress)"
+            ],
+            subscription_type: "Subscription",
+            white_paper_links: [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Using-Threat-Defense-for-Active-Directory.html"
+            ]
+          },
+          {
+            name: "Host Integrity",
+            short_description: "Endpoint compliance and integrity checks",
+            description: "SEP Host Integrity provides flexible compliance checks and options to automate remediation.",
+            features: [
+              "Compliance checks",
+              "Automated remediation",
+              "Scalable policy updates"
+            ],
+            use_cases: [
+              "Ensure endpoint compliance",
+              "Automate remediation",
+              "Scalable policy management"
+            ],
+            competition: [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            clients: [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            subscription_type: "Subscription",
+            white_paper_links: [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Settings/cs-help-hi-console-v14067393-d4155e15268.html"
+            ]
+          }
+        ]
       };
 
     case '48': // SPE-NAS
@@ -983,25 +642,102 @@ const fetchProductDetails = async (id: string) => {
         name: 'SPE - NAS',
         shortDescription: 'Network-attached storage protection',
         fullDescription: 'Provides defense-in-depth protection of storage and protects sensitive data stored in centralized repositories from hackers and infection.',
-        features: [
-          'Storage protection',
-          'Sensitive data protection',
-          'Centralized repository security'
-        ],
-        useCases: [
-          'Protect network-attached storage',
-          'Secure sensitive data',
-          'Prevent storage infections'
-        ],
-        competition: [
-          'Trend Micro'
-        ],
-        subscriptionType: 'Subscription',
-        whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html' }
-        ],
         category: 'Endpoint',
-        isActive: true
+        isActive: true,
+        products: [
+          {
+            name: "Clean Pipe Security",
+            short_description: "Scan Before, During, and After Storage",
+            description: "Provides defense-in-depth protection of storage. Protects sensitive data stored in centralized repositories from hackers and infection. Protects unmanaged clients accessing storage.",
+            features: [
+              "Provides defense-in-depth protection of storage Protects sensitive data stored in centralized repositories from hackers and infection Protects unmanaged clients accessing storage",
+            ],
+            use_cases: [
+              "Clean Pipe Security (Scan Before, During, and After Storage)",
+            ],
+            competition: [
+              "Trend Micro"
+            ],
+            clients: [
+              "Axis Bank",
+              "HDFC",
+              "Infosys"
+            ],
+            subscription_type: "Subscription",
+            white_paper_links: [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html"
+            ]
+          },
+          {
+            name: "File Uploads/Download Protection from Malware",
+            short_description: "Secure file storage operations",
+            description: "Protect users in an enterprise that may download or upload files to storage.",
+            features: [
+              "Protect users in an enterprise that may download or uploaded to File Storage ",
+            ],
+            use_cases: [
+              "File Uploads/Download Protetcion from Malware"
+            ],
+            competition: [
+              "Trend Micro"
+            ],
+            clients: [
+              "Axis Bank",
+              "HDFC",
+              "Infosys"
+            ],
+            subscription_type: "Subscription",
+            white_paper_links: [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html"
+            ]
+          },
+          {
+            name: "Unprotected Storage & Archived Data",
+            short_description: "Protect business-critical stored data",
+            description: "Protects important business data and tools/utilities residing on storage devices that need malware protection.",
+            features: [
+              "Protect Important business data and tools/utilities residing on storage devices that need malware protection."
+            ],
+            use_cases: [
+              "Unprotected Storage & Archived Data"
+            ],
+            competition: [
+              "Trend Micro"
+            ],
+            clients: [
+              "Axis Bank",
+              "HDFC",
+              "Infosys"
+            ],
+            subscription_type: "Subscription",
+            white_paper_links: [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html"
+            ]
+          },
+          {
+            name: "Symantec Protection Engine for NAS: Integrations",
+            short_description: "ICAP-supported storage security",
+            description: "Devices with built-in ICAP support for F5, EMC, Hitachi, IBM, Ctera, NetApp Storage Defined Interface over RPC (7G, C-Mode).",
+            features: [
+              "Devices with built-in ICAP Support fo - F5, EMC, Hitachi, IBM, Ctera etc  / Netapp Stoarge Defined Interface over RPC (7G, C-Mode)"
+            ],
+            use_cases: [
+              "Symantec Protection Engine for NAS: Integrations"
+            ],
+            competition: [
+              "Trend Micro"
+            ],
+            clients: [
+              "Axis Bank",
+              "HDFC",
+              "Infosys"
+            ],
+            subscription_type: "Subscription",
+            white_paper_links: [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html"
+            ]
+          }
+        ]
       };
 
     case '49': // SPE-CS
@@ -1011,14 +747,25 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Cloud storage protection',
         fullDescription: 'Protects important business data and tools/utilities residing on storage devices that need malware protection.',
         features: [
-          'Cloud storage protection',
-          'Malware prevention',
-          'Business data security'
+          "Protect Important business data and tools/utilities residing on storage devices that need malware protection.",
+          "Protect File Storage & Archiving, File Uploads/Downloads",
+          "Prevent users from accidentally  infecting the cloud-based storage services.",
+          "Prevent users from downloading malware onto their devices from cloud storage, applications etc",
+          "Supports ICAP  - Forward/Reverse Proxy, Firewalls – Squid, F5, etc.",
+          "ICAP, C, Java, .Net",
+          "On-prem, AWS, Azure, Google Cloud",
+          "VMWare ESXi, AWS, Azure, Google Cloud"
         ],
         useCases: [
-          'Protect cloud storage',
-          'Prevent malware infections',
-          'Secure business data'
+          "Unprotected Cloud Storage & Archived Data",
+          "File Uploads/Download Protetcion from Malware",
+          "Clean Pipe Security ( Scan Before, During, and After Storage )",
+          "Reduce Exposure in Cloud-based Services",
+          "Prevent Infected File Downloads from Cloud Services",
+          "Out of box integration with Apps/devices",
+          "Ease of custom integrations",
+          "Deployment Model",
+          "Certified on"
         ],
         competition: [
           'AWS',
@@ -1040,14 +787,14 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Data center security',
         fullDescription: 'Provides IDS, system hardening, logon/logoff monitoring, configuration monitoring, and least privilege access control.',
         features: [
-          'Intrusion detection',
-          'System hardening',
-          'Configuration monitoring'
+          "IDS",
+          "System hardening",
+          "Logons/Logoffs Monitoring",
+          "Configuration monitoring",
+          "Least privilege access control."
         ],
         useCases: [
-          'Protect data centers',
-          'Monitor system configurations',
-          'Enforce least privilege access'
+          "HIPS, HIDS, System Hardening, Vulnerability Mitigation, Real time FIM etc"
         ],
         competition: [
           'Trend Micro',
@@ -1068,14 +815,13 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides network management, including events, fault management, performance monitoring, flow analysis, and configuration management.',
         fullDescription: 'Provides network management, including events, fault management, performance monitoring, flow analysis, and configuration management.',
         features: [
-          'Network Events & Fault Management',
-          'Network Performance Monitoring',
-          'Network Flow Analysis',
-          'Network Configuration Management'
+          "Network Management"
         ],
         useCases: [
-          'Monitor and manage network performance and faults.',
-          'Analyze network flow and configurations.'
+          "Network Events & Fault Management",
+          "Network Performance Monitoring",
+          "Network Flow Analysis",
+          "Network Configuration Management"
         ],
         competition: [
           'Solarwinds',
@@ -1097,10 +843,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides synthetic network monitoring and digital experience monitoring.',
         fullDescription: 'Provides synthetic network monitoring and digital experience monitoring.',
         features: [
-          'Hop-by-hop network path analysis.'
+          "Digital Experience Monitoring"
         ],
         useCases: [
-          'Monitor network performance and digital experience.'
+          "Hop by Hop Network path analysis"
         ],
         competition: [
           'Cisco 1000E'
@@ -1120,13 +866,12 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides project portfolio management (PPM) for centralized planning, resource optimization, and reporting.',
         fullDescription: 'Provides project portfolio management (PPM) for centralized planning, resource optimization, and reporting.',
         features: [
-          'Centralized Planning and Prioritization',
-          'Resource Optimization',
-          'Reporting and Insights'
+          "project portfolio management (PPM)"
         ],
         useCases: [
-          'Optimize project planning and resource allocation.',
-          'Generate insights and reports for decision-making.'
+          "Centralized Planning and Prioritization",
+          "Resource Optimization",
+          "Reporting and Insights"
         ],
         competition: [
           'Planview',
@@ -1148,13 +893,12 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides agile project management and software development lifecycle (SDLC) management.',
         fullDescription: 'Provides agile project management and software development lifecycle (SDLC) management.',
         features: [
-          'Agile Development',
-          'Release Planning & Management',
-          'Defect Management & Quality Assurance'
+          "Agile project management and software development lifecycle (SDLC) management"
         ],
         useCases: [
-          'Manage agile software development projects.',
-          'Plan releases and manage defects.'
+          "Agile Development",
+          "Release Planning & Management",
+          "Defect Management & Quality Assurance"
         ],
         competition: [
           'Jira'
@@ -1174,16 +918,16 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Manages complex workloads across platforms, ERPs, and business apps spanning on-premises, hybrid, and multi-cloud environments.',
         fullDescription: 'Manages complex workloads across platforms, ERPs, and business apps spanning on-premises, hybrid, and multi-cloud environments.',
         features: [
-          'Job Scheduling and Automation',
-          'Workflow Automation',
-          'IT Service Management (ITSM) Integration',
-          'Cloud Automation',
-          'API Integration',
-          'Custom Scripting'
+          "Job Scheduling and Automation",
+          "Workflow Automation",
+          "IT Service Management (ITSM) Integration",
+          "Cloud Automation",
+          "API Integration",
+          "Custom Scripting"
         ],
         useCases: [
-          'Automate IT processes and workflows.',
-          'Integrate with cloud and on-premises systems.'
+          "BMC Control-M",
+          "Stonebranch UAC"
         ],
         competition: [
           'BMC Control-M',
@@ -1204,13 +948,14 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides batch processing and data integration for automated data transfers, nightly reports, and data backup.',
         fullDescription: 'Provides batch processing and data integration for automated data transfers, nightly reports, and data backup.',
         features: [
-          'Automated Data Transfers',
-          'Nightly Reports & Analytics',
-          'Data Backup & Recovery'
+          "Batch processing",
+          "Data integration",
+          "Automated data transfers"
         ],
         useCases: [
-          'Automate batch processing and data integration.',
-          'Generate nightly reports and perform data backups.'
+          "Automate data transfers",
+          "Generate nightly reports",
+          "Backup and recover data"
         ],
         competition: [
           'BMC Control-M',
@@ -1343,23 +1088,23 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'A comprehensive ITSM tool for incident management, problem management, change management, and service catalog management.',
         fullDescription: 'A comprehensive ITSM tool for incident management, problem management, change management, and service catalog management.',
         features: [
-          'Incident Management',
-          'Problem Management',
-          'Change Management',
-          'Configuration Management',
-          'Service Catalog',
-          'Knowledge Management',
-          'Self-Service Portal',
-          'Automated Workflow and Incident Resolution',
-          'Reports & Analytics',
-          'Multi-Channel Support'
+          "Incident Management: Helps IT teams quickly respond to and resolve service interruptions. The tool tracks incidents, assigns priorities, and ensures timely resolution to minimize downtime.",
+          "Problem Management: Enables the identification and resolution of underlying issues causing incidents, aiming to prevent future occurrences.",
+          "Change Management: Supports the planning, approval, and implementation of changes to IT infrastructure and services while minimizing risks to operations.",
+          "Configuration Management: Helps manage and maintain the configuration items (CIs) in the IT environment, providing a clear overview of dependencies and relationships between systems.",
+          "Service Catalog: A central repository of available IT services that users can request. This feature makes it easier for end-users to access and request standard services.",
+          "Knowledge Management: Facilitates the creation and sharing of knowledge articles to help users solve problems independently and enhance operational efficiency.",
+          "Self-Service Portal: Provides a user-friendly interface for employees or customers to submit service requests, view status updates, and access knowledge base articles.",
+          "Automated Workflow and Incident Resolution: Automates workflows and processes to reduce manual intervention and improve efficiency in handling tickets and service requests.",
+          "Reports & Analytics: Offers in-depth reporting and data analysis to help track service performance, understand trends, and make data-driven decisions for continuous improvement.",
+          "Multi-Channel Support: Supports requests and incident reporting through various channels like email, web portal, and phone, improving accessibility and communication."
         ],
         useCases: [
-          'Enterprise IT Operations: Minimize service interruptions and maximize customer satisfaction.',
-          'Customer Support: Track, manage, and resolve customer issues across multiple channels.',
-          'Cloud Service Management: Handle incidents, requests, and service tasks for cloud-based services.',
-          'ITIL Framework Implementation: Align IT service practices with ITIL best practices.',
-          'Compliance and Audit Management: Track and report service metrics for regulatory compliance.'
+          "Enterprise IT Operations: Organizations use CA Service Desk to improve the efficiency of their IT operations, ensuring that service interruptions are minimized, and customer satisfaction is maximized.",
+          "Customer Support: The solution can be leveraged by customer support teams to track, manage, and resolve customer issues across various channels, ensuring faster resolution times and better service delivery.",
+          "Cloud Service Management: Cloud-based service providers may use CA Service Desk to handle incidents, requests, and other service management tasks efficiently, ensuring seamless service delivery.",
+          "ITIL Framework Implementation: Many businesses use CA Service Desk to align their IT service management practices with the ITIL (Information Technology Infrastructure Library) framework for best practices in managing IT services.",
+          "Compliance and Audit Management: For companies requiring strict compliance with regulations, CA Service Desk helps track and report service management metrics, ensuring accountability and transparency."
         ],
         competition: [
           'ServiceNow',
@@ -1418,12 +1163,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Protects against data leaks from endpoints by identifying unsanctioned Shadow IT and risky applications.',
         fullDescription: 'Protects against data leaks from endpoints by identifying unsanctioned Shadow IT and risky applications.',
         features: [
-          'Identifies and blocks risky applications and users.',
-          'Provides visibility into unsanctioned cloud applications.'
+          "Protects data leak from end point"
         ],
         useCases: [
-          'Prevent data leaks from endpoints.',
-          'Identify and block risky applications and users.'
+          "Helps you determine which apps should be blocked and which should be allowed within your organization by identifying unsanctioned Shadow IT and risky applications and users."
         ],
         competition: [
           'Forcepoint',
@@ -1445,12 +1188,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet.',
         fullDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet.',
         features: [
-          'Centralized management, reporting, and threat intelligence.',
-          'SSL inspection, isolation, and CASB visibility and control.'
+          "Safe Internet Browsing and SSL / TLS interception over the internet"
         ],
         useCases: [
-          'Secure internet connectivity for corporate sites, branch offices, and remote locations.',
-          'Protect networks, clients, and servers from malicious traffic.'
+          "A single product with multiple implementations; on-premises, cloud, or hybrid. It includes multiple features and components used to protect networks, clients, and servers from today's malicious traffic while allowing safe interaction with all available applications from any location. Web Protection is a single solution offering productive internet connectivity for users at corporate sites, small branch offices and from remote locations including your home. Web Protection delivers a complete secure solution that includes centralized management, reporting, threat intelligence, SSL inspection, isolation, and CASB visibility and control.",
         ],
         competition: [
           'Zscaler',
@@ -1472,10 +1213,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Protects internally hosted web servers by securing and accelerating web applications and websites.',
         fullDescription: 'Protects internally hosted web servers by securing and accelerating web applications and websites.',
         features: [
-          'Protection for web applications and websites hosted on-premises or in data centers.'
+          "Protecting Internally Hosted Web Servers",
         ],
         useCases: [
-          'Secure and accelerate internally hosted web applications.'
+          "File-based malware detection and Machine Learning with the Content Analysis licensing for Edge SWG and Cloud SWG.",
         ],
         competition: [
           'Zscaler',
@@ -1497,12 +1238,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet in a cloud-based solution.',
         fullDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet in a cloud-based solution.',
         features: [
-          'Centralized management, reporting, and threat intelligence.',
-          'SSL inspection, isolation, and CASB visibility and control.'
+          "Safe Internet Browsing and SSL / TLS interception over the internet",
         ],
         useCases: [
-          'Secure internet connectivity for corporate sites, branch offices, and remote locations.',
-          'Protect networks, clients, and servers from malicious traffic.'
+          "Execution of all web sessions away from endpoints, sending only a safe rendering of information to users’ browsers. This prevents any website-delivered, zero-day malware from reaching user devices. Administrators can set policies to isolate websites that are uncategorized or categorized at Risk Level 5 and above. The full Web Isolation feature allows administrators to define what is matched to qualify the traffic for isolation and then determine how isolation takes effect, such as allow, scan or block files and can set sites as read-only for added protection.",
         ],
         competition: [
           'Zscaler',
@@ -1524,10 +1263,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides granular control over non-HTTP/HTTPS protocols with firewall policies in the cloud.',
         fullDescription: 'Provides granular control over non-HTTP/HTTPS protocols with firewall policies in the cloud.',
         features: [
-          'Filter traffic based on user and layer four port.'
+          "Granular Control Over non HTTP/HTTPS protocol"
         ],
         useCases: [
-          'Control non-web-based traffic in the cloud.'
+          "File-based malware detection, Machine Learning, and cloud-based sandboxing and remote file detonation is included with the Content Analysis licensing for Cloud SWG."
         ],
         competition: [
           'Zscaler',
@@ -1548,10 +1287,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads.',
         fullDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads.',
         features: [
-          'File-based malware detection and machine learning.'
+          "Content analysis to protect from Threats from Malacious URLs and Malacious Downloads"
         ],
         useCases: [
-          'Protect against malicious URLs and downloads.'
+          "File-based malware detection and Machine Learning with the Content Analysis licensing for Edge SWG and Cloud SWG."
         ],
         competition: [
           'Zscaler',
@@ -1573,10 +1312,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads in a cloud-based solution.',
         fullDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads in a cloud-based solution.',
         features: [
-          'File-based malware detection and machine learning.'
+          "Content analysis to protect from Threats from Malacious URLs and Malacious Downloads",
         ],
         useCases: [
-          'Protect against malicious URLs and downloads.'
+          "File-based malware detection and Machine Learning with the Content Analysis licensing for Edge SWG and Cloud SWG.",
         ],
         competition: [
           'Zscaler',
@@ -1598,12 +1337,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Protects against harmful and unknown web URL categories by executing web sessions away from endpoints.',
         fullDescription: 'Protects against harmful and unknown web URL categories by executing web sessions away from endpoints.',
         features: [
-          'Execution of web sessions away from endpoints.',
-          'Safe rendering of information to users\' browsers.'
+          "Protection from harmful and unknown Web URL categories"
         ],
         useCases: [
-          'Prevent zero-day malware from reaching user devices.',
-          'Isolate uncategorized or high-risk websites.'
+          "Execution of all web sessions away from endpoints, sending only a safe rendering of information to users’ browsers. This prevents any website-delivered, zero-day malware from reaching user devices. Administrators can set policies to isolate websites that are uncategorized or categorized at Risk Level 5 and above. The full Web Isolation feature allows administrators to define what is matched to qualify the traffic for isolation and then determine how isolation takes effect, such as allow, scan or block files and can set sites as read-only for added protection."
         ],
         competition: [
           'Zscaler',
@@ -1625,10 +1362,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides sandboxing for unknown threats in a cloud-based solution.',
         fullDescription: 'Provides sandboxing for unknown threats in a cloud-based solution.',
         features: [
-          'File-based malware detection, machine learning, and cloud-based sandboxing.'
+          "Sandboxing for unknown threats",
         ],
         useCases: [
-          'Detect and analyze unknown threats in the cloud.'
+          "File-based malware detection, Machine Learning, and cloud-based sandboxing and remote file detonation is included with the Content Analysis licensing for Cloud SWG.",
         ],
         competition: [
           'Zscaler',
@@ -1650,12 +1387,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides secure private access to resources hosted on-premise and SaaS.',
         fullDescription: 'Provides secure private access to resources hosted on-premise and SaaS.',
         features: [
-          'Eliminates inbound connections to customer networks.',
-          'Creates a software-defined perimeter (SDP) between users and applications.'
+          "Secure Private access to resources hosted on Premise as well as SaaS"
         ],
         useCases: [
-          'Secure access to applications without VPNs.',
-          'Make applications invisible to attackers.'
+          "ZTNA eliminates inbound connections to customer networks (and the need for a VPN) and creates a software-defined perimeter (SDP) between users and applications. Only authorized users can connect to specific applications while making applications invisible to attackers."
         ],
         competition: [
           'Zscaler',
@@ -1676,10 +1411,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides SSL/TLS decryption for visibility into encrypted traffic.',
         fullDescription: 'Provides SSL/TLS decryption for visibility into encrypted traffic.',
         features: [
-          'Identifies and decrypts SSL connections across all network ports.'
+          "SSL/TLS decryption"
         ],
         useCases: [
-          'Ensure attacks cannot slip by undetected in encrypted traffic.'
+          'The SSL Visibility Appliance is an integral component to any organization’s traffic management strategy, providing visibility into encrypted traffic that ensures attacks cannot slip by undetected. The appliance identifies and decrypts all SSL connections and applications across all network ports, and even irregular ports. The decrypted feeds can be used by the existing security infrastructure to strengthen their ability to detect and protect against advanced threats; by offloading process intensive decryption'
         ],
         competition: [
           'Gigamon'
@@ -1700,13 +1435,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Improves network visibility, inspection, and forensics to accelerate incident response and remediation.',
         fullDescription: 'Improves network visibility, inspection, and forensics to accelerate incident response and remediation.',
         features: [
-          'Threat Hunting',
-          'Network Visibility',
-          'Forensics and Incident Response'
+          'Threat Hunting'
         ],
         useCases: [
-          'Accelerate incident response and remediation.',
-          'Improve network visibility and inspection.'
+          "Security Analytics improves network visibility, inspection, and forensics to accelerate incident response and remediation."
         ],
         competition: [
           'Qradar',
@@ -1728,11 +1460,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides email protection and antispam capabilities.',
         fullDescription: 'Provides email protection and antispam capabilities.',
         features: [
-          'Email protection',
           'Antispam'
         ],
         useCases: [
-          'Protect against email threats and spam.'
+          "Email protection"
         ],
         competition: [
           'Proofpoint',
@@ -1753,11 +1484,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides drive encryption and whole disk encryption for data protection.',
         fullDescription: 'Provides drive encryption and whole disk encryption for data protection.',
         features: [
-          'Drive Encryption',
-          'Whole Disk Encryption'
+          "Drive Encryption Whole disk encryption"
         ],
-        useCases: [
-          'Protect sensitive data on endpoints.'
+        use_cases: [
+          "Data protection"
         ],
         competition: [
           'Trellix',
@@ -1779,7 +1509,7 @@ const fetchProductDetails = async (id: string) => {
           'Multifactor Authentication'
         ],
         useCases: [
-          'Secure access to applications with MFA.'
+          "Application protection"
         ],
         competition: [
           'Mic'
@@ -1797,12 +1527,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides authentication and single sign-on (SSO) capabilities.',
         fullDescription: 'Provides authentication and single sign-on (SSO) capabilities.',
         features: [
-          'SSO',
-          'OAUTH',
-          'SAML'
+          "Authentication"
         ],
         useCases: [
-          'Secure access to applications with SSO and SAML.'
+          "AuthenticationSSO, OAUTH, SAML"
         ],
         competition: [
           'ForgeRock',
@@ -1822,15 +1550,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides authentication with SSO, OAUTH, SAML, FIDO2, MFA, and risk-based authentication.',
         fullDescription: 'Provides authentication with SSO, OAUTH, SAML, FIDO2, MFA, and risk-based authentication.',
         features: [
-          'SSO',
-          'OAUTH',
-          'SAML',
-          'FIDO2',
-          'MFA',
-          'Risk-Based Authentication'
+          "Authentication"
         ],
         useCases: [
-          'Secure access to applications with advanced authentication methods.'
+          "SSO, OAUTH, SAML, FIDO2, MFA, Risk Based Auth"
         ],
         competition: [
           'Okta',
@@ -1851,14 +1574,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides cloud-based authentication with SSO, OAUTH, SAML, FIDO2, and MFA.',
         fullDescription: 'Provides cloud-based authentication with SSO, OAUTH, SAML, FIDO2, and MFA.',
         features: [
-          'SSO',
-          'OAUTH',
-          'SAML',
-          'FIDO2',
-          'MFA'
+          "Authentication"
         ],
         useCases: [
-          'Secure access to cloud applications with MFA and SSO.'
+          "SSO, OAUTH, SAML, FIDO2, MFA"
         ],
         competition: [
           'Okta',
@@ -1879,11 +1598,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides authentication with SSO and MFA.',
         fullDescription: 'Provides authentication with SSO and MFA.',
         features: [
-          'SSO',
-          'MFA'
+          "Authentication"
         ],
         useCases: [
-          'Secure access to applications with SSO and MFA.'
+          "SSO, MFA"
         ],
         competition: [
           'Okta',
@@ -1903,14 +1621,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides identity management and governance, including identity lifecycle management, user provisioning, and identity governance.',
         fullDescription: 'Provides identity management and governance, including identity lifecycle management, user provisioning, and identity governance.',
         features: [
-          'Identity Lifecycle Management',
-          'Identity Governance',
-          'User Service Portal',
-          'User Provisioning'
+          "Identity Management and Governance"
         ],
         useCases: [
-          'Manage identity lifecycle and governance.',
-          'Provision users and manage access.'
+          "Identity Lifecycle Management, Identity Governance, User service Portal, User provisioning"
         ],
         competition: [
           'Sailpoint',
@@ -1930,11 +1644,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides password vault and privilege access management.',
         fullDescription: 'Provides password vault and privilege access management.',
         features: [
-          'Password Vault',
-          'Privilege Access Management'
+          "Password Management"
         ],
         useCases: [
-          'Secure privileged access and manage passwords.'
+          "Password Vault, Privilege Access management"
         ],
         competition: [
           'Cyberark',
@@ -1953,10 +1666,10 @@ const fetchProductDetails = async (id: string) => {
         shortDescription: 'Provides user directory services.',
         fullDescription: 'Provides user directory services.',
         features: [
-          'User Directory'
+          "Directory"
         ],
         useCases: [
-          'Manage user directories for authentication and access.'
+          "User Directory"
         ],
         competition: [
           'RHDS',
@@ -2008,24 +1721,24 @@ const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const isNew = id === 'new';
-  
+
   // For switching between view and edit mode
   const [isEditing, setIsEditing] = useState(isNew);
-  
+
   // Track whitepaper links state
-  const [whitepaperLinks, setWhitepaperLinks] = useState<Array<{title: string, url: string}>>([]);
+  const [whitepaperLinks, setWhitepaperLinks] = useState<Array<{ title: string, url: string }>>([]);
   const [newLinkTitle, setNewLinkTitle] = useState('');
   const [newLinkUrl, setNewLinkUrl] = useState('');
-  
+
   // For form loading state
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const { data: product, isLoading, error } = useQuery<Product>({
     queryKey: ['product', id],
     queryFn: () => fetchProductDetails(id || 'new'),
     enabled: !!id
   });
-  
+
   // Set up form with react-hook-form
   const form = useForm<z.infer<typeof productSchema>>({
     resolver: zodResolver(productSchema),
@@ -2039,7 +1752,7 @@ const ProductDetails = () => {
       whitepaperLinks: [],
     },
   });
-  
+
   // Update form values when product data is loaded
   React.useEffect(() => {
     console.log("Product data loaded:", product);
@@ -2053,11 +1766,11 @@ const ProductDetails = () => {
         isActive: product.isActive,
         whitepaperLinks: product.whitepaperLinks,
       });
-      
+
       setWhitepaperLinks(product.whitepaperLinks || []);
     }
   }, [product, isLoading, form]);
-  
+
   const addWhitepaperLink = () => {
     if (newLinkTitle && newLinkUrl) {
       const newLinks = [...whitepaperLinks, { title: newLinkTitle, url: newLinkUrl }];
@@ -2067,27 +1780,27 @@ const ProductDetails = () => {
       setNewLinkUrl('');
     }
   };
-  
+
   const removeWhitepaperLink = (index: number) => {
     const newLinks = [...whitepaperLinks];
     newLinks.splice(index, 1);
     setWhitepaperLinks(newLinks);
     form.setValue('whitepaperLinks', newLinks);
   };
-  
+
   const onSubmit = async (values: z.infer<typeof productSchema>) => {
     try {
       setIsSubmitting(true);
       console.log('Form values to submit:', values);
-      
+
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       toast.success(
         `Product ${isNew ? 'created' : 'updated'} successfully`,
         { description: `${values.name} has been ${isNew ? 'added to' : 'updated in'} your product catalog.` }
       );
-      
+
       if (isNew) {
         navigate('/products');
       } else {
@@ -2103,20 +1816,20 @@ const ProductDetails = () => {
       setIsSubmitting(false);
     }
   };
-  
+
   // Show loading skeleton
   if (isLoading) {
     return (
       <div className="container mx-auto py-6 sm:py-8 md:py-12 px-4 max-w-7xl">
-        <Button 
-          variant="ghost" 
-          className="mb-4 sm:mb-6" 
+        <Button
+          variant="ghost"
+          className="mb-4 sm:mb-6"
           onClick={() => navigate(-1)}
         >
           <ArrowLeft size={16} className="mr-2" />
           Back
         </Button>
-        
+
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8">
           <div>
             <Skeleton className="h-8 sm:h-10 md:h-12 w-full sm:w-3/4 mb-2 sm:mb-4" />
@@ -2128,7 +1841,7 @@ const ProductDetails = () => {
       </div>
     );
   }
-  
+
   // Show error message
   if (error || !product) {
     return (
@@ -2143,14 +1856,14 @@ const ProductDetails = () => {
       </div>
     );
   }
-  
+
   // Render form for new/edit product
   if (isNew || isEditing) {
     return (
       <div className="container mx-auto py-6 sm:py-8 md:py-12 px-4 max-w-5xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             onClick={() => isNew ? navigate('/products') : setIsEditing(false)}
             className="w-full sm:w-auto"
           >
@@ -2159,7 +1872,7 @@ const ProductDetails = () => {
           </Button>
           <h1 className="text-xl sm:text-2xl font-semibold">{isNew ? 'Create New Product' : 'Edit Product'}</h1>
         </div>
-        
+
         <Card className="overflow-hidden">
           <CardHeader className="px-4 sm:px-6">
             <CardTitle className="text-lg sm:text-xl">{isNew ? 'Product Details' : `Editing: ${product.name}`}</CardTitle>
@@ -2186,7 +1899,7 @@ const ProductDetails = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="shortDescription"
@@ -2194,9 +1907,9 @@ const ProductDetails = () => {
                     <FormItem>
                       <FormLabel>Short Description</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Brief description of the product" 
-                          {...field} 
+                        <Textarea
+                          placeholder="Brief description of the product"
+                          {...field}
                           className="min-h-[80px] sm:min-h-[100px]"
                         />
                       </FormControl>
@@ -2207,7 +1920,7 @@ const ProductDetails = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="fullDescription"
@@ -2215,10 +1928,10 @@ const ProductDetails = () => {
                     <FormItem>
                       <FormLabel>Full Description</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Detailed description of the product" 
+                        <Textarea
+                          placeholder="Detailed description of the product"
                           className="min-h-[120px] sm:min-h-[150px]"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormDescription className="text-xs sm:text-sm">
@@ -2228,7 +1941,7 @@ const ProductDetails = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <FormField
                     control={form.control}
@@ -2236,8 +1949,8 @@ const ProductDetails = () => {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Category</FormLabel>
-                        <Select 
-                          onValueChange={field.onChange} 
+                        <Select
+                          onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
@@ -2260,15 +1973,15 @@ const ProductDetails = () => {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={form.control}
                     name="subscriptionType"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Subscription Type</FormLabel>
-                        <Select 
-                          onValueChange={field.onChange} 
+                        <Select
+                          onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
@@ -2291,7 +2004,7 @@ const ProductDetails = () => {
                     )}
                   />
                 </div>
-                
+
                 {/* Whitepaper Links Section */}
                 <div className="space-y-3 sm:space-y-4">
                   <h3 className="text-base sm:text-lg font-medium">Whitepaper Links</h3>
@@ -2302,9 +2015,9 @@ const ProductDetails = () => {
                           <p className="font-medium text-sm sm:text-base">{link.title}</p>
                           <p className="text-xs sm:text-sm text-muted-foreground truncate">{link.url}</p>
                         </div>
-                        <Button 
-                          type="button" 
-                          variant="ghost" 
+                        <Button
+                          type="button"
+                          variant="ghost"
                           size="sm"
                           onClick={() => removeWhitepaperLink(index)}
                           className="self-end sm:self-auto"
@@ -2313,7 +2026,7 @@ const ProductDetails = () => {
                         </Button>
                       </div>
                     ))}
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <Input
                         placeholder="Link Title"
@@ -2328,9 +2041,9 @@ const ProductDetails = () => {
                         className="text-sm"
                       />
                     </div>
-                    <Button 
-                      type="button" 
-                      variant="outline" 
+                    <Button
+                      type="button"
+                      variant="outline"
                       size="sm"
                       onClick={addWhitepaperLink}
                       disabled={!newLinkTitle || !newLinkUrl}
@@ -2341,7 +2054,7 @@ const ProductDetails = () => {
                     </Button>
                   </div>
                 </div>
-                
+
                 <FormField
                   control={form.control}
                   name="isActive"
@@ -2362,7 +2075,7 @@ const ProductDetails = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <div className="flex flex-col sm:flex-row sm:justify-end gap-3 sm:gap-4 pt-2 sm:pt-4">
                   <Button
                     type="button"
@@ -2373,8 +2086,8 @@ const ProductDetails = () => {
                   >
                     Cancel
                   </Button>
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     disabled={isSubmitting}
                     className="w-full sm:w-auto order-1 sm:order-2"
                   >
@@ -2388,24 +2101,24 @@ const ProductDetails = () => {
       </div>
     );
   }
-  
+
   // Render product details view
   return (
     <div className="container mx-auto py-6 sm:py-8 md:py-12 px-4 max-w-6xl">
-      <Button 
-        variant="ghost" 
-        className="mb-4 sm:mb-6" 
+      <Button
+        variant="ghost"
+        className="mb-4 sm:mb-6"
         onClick={() => navigate('/products')}
       >
         <ArrowLeft size={16} className="mr-2" />
         Back to Products
       </Button>
-      
+
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3">
         <h1 className="text-2xl sm:text-3xl font-semibold">{product.name}</h1>
         {/* Edit Product button removed */}
       </div>
-      
+
       <Card className="overflow-hidden">
         <CardContent className="p-4 sm:p-6">
           <div className="flex flex-wrap gap-2 mb-4">
@@ -2419,11 +2132,11 @@ const ProductDetails = () => {
               <Badge variant="destructive">Unavailable</Badge>
             )}
           </div>
-          
+
           <p className="text-lg sm:text-xl text-muted-foreground mb-6">
             {product.shortDescription}
           </p>
-          
+
           <Tabs defaultValue="overview" className="mb-6 sm:mb-8">
             <TabsList className="inline-flex border-b rounded-none bg-muted/40 mb-4 ml-0">
               <TabsTrigger value="overview">Overview</TabsTrigger>
@@ -2432,13 +2145,13 @@ const ProductDetails = () => {
               <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
               <TabsTrigger value="documentation">Documentation</TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="overview" className="space-y-4 mt-4 sm:mt-6">
               <div>
                 <h3 className="text-base sm:text-lg font-medium mb-2">Description</h3>
                 <p className="text-sm sm:text-base text-muted-foreground">{product.fullDescription}</p>
               </div>
-              
+
               {product.competition && product.competition.length > 0 && (
                 <div>
                   <h3 className="text-base sm:text-lg font-medium mb-2">Competition</h3>
@@ -2450,7 +2163,7 @@ const ProductDetails = () => {
                 </div>
               )}
             </TabsContent>
-            
+
             <TabsContent value="features" className="space-y-4 mt-4 sm:mt-6">
               <h3 className="text-base sm:text-lg font-medium mb-2">Key Features</h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -2466,7 +2179,7 @@ const ProductDetails = () => {
                 ))}
               </ul>
             </TabsContent>
-            
+
             <TabsContent value="competition" className="space-y-4 mt-4 sm:mt-6">
               <h3 className="text-base sm:text-lg font-medium mb-2">Competitors</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
@@ -2479,7 +2192,7 @@ const ProductDetails = () => {
                 ))}
               </div>
             </TabsContent>
-            
+
             <TabsContent value="use-cases" className="space-y-4 mt-4 sm:mt-6">
               <h3 className="text-base sm:text-lg font-medium mb-2">Common Use Cases</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -2492,7 +2205,7 @@ const ProductDetails = () => {
                 ))}
               </div>
             </TabsContent>
-            
+
             <TabsContent value="documentation" className="space-y-4 mt-4 sm:mt-6">
               <h3 className="text-base sm:text-lg font-medium mb-2">Whitepapers & Documentation</h3>
               {product.whitepaperLinks && product.whitepaperLinks.length > 0 ? (
@@ -2509,8 +2222,8 @@ const ProductDetails = () => {
                             </p>
                           </div>
                         </div>
-                        <Button 
-                          variant="outline" 
+                        <Button
+                          variant="outline"
                           size="sm"
                           onClick={() => window.open(link.url, '_blank')}
                           className="self-end sm:self-auto"
@@ -2526,21 +2239,21 @@ const ProductDetails = () => {
               )}
             </TabsContent>
           </Tabs>
-          
+
           <Separator className="my-6 sm:my-8" />
-          
+
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={() => navigate('/products')}
               className="w-full sm:w-auto order-2 sm:order-1"
             >
               <ArrowLeft size={16} className="mr-2" />
               Back to Products
             </Button>
-            
+
             {product.whitepaperLinks && product.whitepaperLinks.length > 0 && (
-              <Button 
+              <Button
                 onClick={() => window.open(product.whitepaperLinks[0].url, '_blank')}
                 className="w-full sm:w-auto order-1 sm:order-2"
               >

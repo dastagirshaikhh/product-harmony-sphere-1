@@ -582,8 +582,7 @@
           "short_description": "Cloud access security broker",
           "description": "Protects data leak from endpoints and provides visibility into cloud applications.",
           "features": [
-            "Protects data leak from end point",
-            ""
+            "Protects data leak from end point"
           ],
           "use_cases": [
             "Helps you determine which apps should be blocked and which should be allowed within your organization by identifying unsanctioned Shadow IT and risky applications and users."
@@ -640,7 +639,6 @@
             "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
           ]
         },
-      
         {
           "name": "SSLV",
           "short_description": "SSL/TLS decryption",
